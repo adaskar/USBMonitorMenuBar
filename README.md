@@ -2,7 +2,8 @@
 
 A lightweight, unobtrusive macOS menu bar application that monitors USB device connections and disconnections in real-time.
 
-![USB Monitor Menu Bar Screenshot](https://via.placeholder.com/800x450 "USB Monitor Menu Bar")
+![WhatsApp Image 2025-05-03 at 15 14 35](https://github.com/user-attachments/assets/5b2ce41f-ccd8-4bcd-b1ef-f8b9a047ecc9)
+
 
 ## Overview
 
