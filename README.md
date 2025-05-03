@@ -1,5 +1,7 @@
 Overview
+
 USB Monitor Menu Bar sits quietly in your macOS menu bar and keeps track of all USB device activities on your system. It provides instant notifications when devices are connected or disconnected and maintains a detailed log of all USB events.
+
 Features
 
 Real-time USB Monitoring: Tracks all USB device connections and disconnections as they happen
