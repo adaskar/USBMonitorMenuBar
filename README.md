@@ -10,3 +10,11 @@ Detailed Event Log: Records timestamps, device names, manufacturers, and hardwar
 Desktop Notifications: Provides instant alerts when USB devices are connected or disconnected
 Configurable Settings: Toggle monitoring and notifications on/off as needed
 Visual Log Interface: Color-coded log window for easy scanning (green for connections, red for disconnections)
+
+Build
+
+clang -o USBMonitorMenuBar USBMonitorMenuBar.m -framework Cocoa -framework IOKit
+
+Run
+
+./USBMonitorMenuBar
