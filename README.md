@@ -2,7 +2,7 @@
 
 A lightweight macOS menu bar application that monitors USB device connections and disconnections in real-time.
 
-![WhatsApp Image 2025-05-03 at 15 14 35](https://github.com/user-attachments/assets/5b2ce41f-ccd8-4bcd-b1ef-f8b9a047ecc9)
+![image](https://github.com/user-attachments/assets/4f428d2c-b435-4cb1-9ef2-5aedd147ee2d)
 
 
 ## Overview
