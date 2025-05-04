@@ -19,6 +19,7 @@ USB Monitor Menu Bar sits quietly in your macOS menu bar and keeps track of all 
 - **Visual Log Interface**: Color-coded log window for easy scanning (green for connections, red for disconnections)
 
 ## Releases
+
 I have uploaded v1.0 version to releases, you can follow the instructions on the version page in order to use it correctly
 https://github.com/adaskar/USBMonitorMenuBar/releases
 
