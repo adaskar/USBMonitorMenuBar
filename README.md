@@ -30,15 +30,22 @@ USB Monitor Menu Bar sits quietly in your macOS menu bar and keeps track of all 
 You can build and package your app using the command line tools:
 
 # Compile the code
+```
 clang -framework Cocoa -framework IOKit USBMonitorMenuBar.m -o USBMonitor
+```
 
 # Create the app structure
+```
 mkdir -p USBMonitor.app/Contents/{MacOS,Resources}
+```
 
 # Move the executable into place
+```
 mv USBMonitor USBMonitor.app/Contents/MacOS/
+```
 
 # Create an Info.plist
+```
 cat > USBMonitor.app/Contents/Info.plist << EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -61,9 +68,13 @@ cat > USBMonitor.app/Contents/Info.plist << EOF
 </dict>
 </plist>
 EOF
-
+```
 # Make the app executable
+```
 chmod +x USBMonitor.app/Contents/MacOS/USBMonitor
+```
 
 # Sign the app (optional but recommended)
+```
 codesign --force --sign - USBMonitor.app
+```
