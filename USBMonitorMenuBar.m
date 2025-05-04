@@ -407,47 +407,16 @@ void DeviceRemoved(void *refCon, io_iterator_t iterator) {
 
 - (void)showNotification:(NSString *)title message:(NSString *)message {
     @try {
-        // Use NSTask to run osascript directly
-        NSTask *task = [[NSTask alloc] init];
-        [task setLaunchPath:@"/usr/bin/osascript"];
+        // Create a new NSUserNotification
+        NSUserNotification *notification = [[NSUserNotification alloc] init];
+        notification.title = title;
+        notification.informativeText = message;
+        notification.soundName = NSUserNotificationDefaultSoundName;
         
-        // Prepare the AppleScript command
-        NSArray *args = @[
-            @"-e",
-            [NSString stringWithFormat:@"display notification \"%@\" with title \"%@\"", 
-             [message stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""],
-             [title stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""]
-            ]
-        ];
-        [task setArguments:args];
+        // Deliver the notification
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
         
-        // Configure output and error pipes
-        NSPipe *outputPipe = [NSPipe pipe];
-        NSPipe *errorPipe = [NSPipe pipe];
-        [task setStandardOutput:outputPipe];
-        [task setStandardError:errorPipe];
-        
-        // Launch the task
-        [task launch];
-        [task waitUntilExit];
-        
-        // Check if task succeeded
-        if ([task terminationStatus] != 0) {
-            NSFileHandle *errorHandle = [errorPipe fileHandleForReading];
-            NSData *errorData = [errorHandle readDataToEndOfFile];
-            NSString *errorString = [[NSString alloc] initWithData:errorData encoding:NSUTF8StringEncoding];
-            NSLog(@"osascript failed: %@", errorString);
-            
-            // Fall back to NSUserNotification if osascript fails
-            NSUserNotification *notification = [[NSUserNotification alloc] init];
-            notification.title = title;
-            notification.informativeText = message;
-            notification.soundName = NSUserNotificationDefaultSoundName;
-            
-            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-        } else {
-            NSLog(@"osascript notification sent successfully");
-        }
+        NSLog(@"Native notification sent successfully");
     } @catch (NSException *exception) {
         NSLog(@"Failed to show notification: %@", exception);
         [self addLogEntry:[NSString stringWithFormat:@"Failed to show notification: %@", exception.reason] isConnected:NO];
