@@ -1,3 +1,4 @@
+![Icon](USBMonitor.iconset/icon_256x256.png)
 # USB Monitor Menu Bar
 
 A lightweight macOS menu bar application that monitors USB device connections and disconnections in real-time.
